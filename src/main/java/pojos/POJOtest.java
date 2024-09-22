@@ -8,7 +8,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class POJOtest {
-    String s1;
-    String s2;
-    String s3;
+    public POJOtest(){}
+    String address;
+    String domain;
+    String country;
+    String phone;
+    String name;
+    String category;
+
+
 }

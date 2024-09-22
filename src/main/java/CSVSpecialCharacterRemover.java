@@ -1,8 +1,9 @@
 import java.io.*;
 
+
 public class CSVSpecialCharacterRemover {
     public static void main(String[] args) {
-        String inputFile = Main.file;
+        String inputFile = Main.fileWebsite;
         String outputFile = Main.outputFile;
 
         try {
@@ -12,7 +13,7 @@ public class CSVSpecialCharacterRemover {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Remove special characters from the line
-                String cleanedLine = line.replaceAll(";", " ");
+                String cleanedLine = line.replaceAll(",", " ");
                 writer.write(cleanedLine);
                 writer.newLine();
             }
@@ -20,7 +21,7 @@ public class CSVSpecialCharacterRemover {
             reader.close();
             writer.close();
 
-            System.out.println("CSV file cleaned successfully!");
+            System.out.println("CSV file cleaned!");
         } catch (IOException e) {
             e.printStackTrace();
         }

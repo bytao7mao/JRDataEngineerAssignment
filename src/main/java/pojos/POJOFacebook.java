@@ -8,13 +8,14 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class POJOFacebook {
+    //16 items
     String domain;
     String address;
     String categories;
     String city;
     String country_code;
     String country_name;
-    String description;
+    String description; //6 index
     String email;
     String link;
     String name;
