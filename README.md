@@ -3,4 +3,4 @@
 
 
 ### Mockup of retrieving Data (work in progress)
-<br><img align="left" width="300" src="resources/test.PNG" alt="cmd picture" />
+<br><img align="left" width="300" src="src/main/resources/test.PNG" alt="cmd picture" />
