@@ -14,6 +14,7 @@ import java.util.*;
 public class Main {
     final static String fileGoogle = "C:\\Users\\tao\\Documents\\resourcesForAssignment\\google_dataset.csv";
     final static String fileFacebook = "C:\\Users\\tao\\Documents\\resourcesForAssignment\\facebook_dataset.csv";
+    final static String fileMiniFacebook = "C:\\Users\\tao\\Documents\\resourcesForAssignment\\mini_facebook.csv";
     final static String fileWebsite = "C:\\Users\\tao\\Documents\\resourcesForAssignment\\website_dataset.csv";
     final static String outputFile = "C:\\Users\\tao\\Documents\\resourcesForAssignment\\country_duplicate_from_all_files.csv";
     final static String testFile = "C:\\Users\\tao\\Documents\\resourcesForAssignment\\test.csv";
@@ -33,7 +34,7 @@ public class Main {
         }
         try {
             csvFilesForFb.addAll(
-                    CSVUtils.importDataFromCSVFacebook(fileFacebook));
+                    CSVUtils.importDataFromCSVFacebook(fileMiniFacebook));
         }catch (IOException e) {
             e.printStackTrace();
         } catch (CsvValidationException e) {
@@ -78,31 +79,31 @@ public class Main {
                     pojoGoogle.getDomain()));
         }
 
-        for (POJOWeb pojo:arrayPojoWeb){
-                if (hashMapCountry.containsKey(pojo.getLegal_name())){
-                    hashMapCountry.put(pojo.getLegal_name(), hashMapCountry.get(pojo.getLegal_name()) + 1);
-                } else {
-                    hashMapCountry.put(pojo.getLegal_name(), 1);
-                }
-            }
+//        for (POJOWeb pojo:arrayPojoWeb){
+//                if (hashMapName.containsKey(pojo.getLegal_name())){
+//                    hashMapName.put(pojo.getLegal_name(), hashMapName.get(pojo.getLegal_name()) + 1);
+//                } else {
+//                    hashMapName.put(pojo.getLegal_name(), 1);
+//                }
+//            }
         for (POJOFacebook pojo:arrayPojoFacebook){
-            if (hashMapCountry.containsKey(pojo.getName())){
-                hashMapCountry.put(pojo.getName(), hashMapCountry.get(pojo.getName()) + 1);
+            if (hashMapName.containsKey(pojo.getName())){
+                hashMapName.put(pojo.getName(), hashMapName.get(pojo.getName()) + 1);
             } else {
-                hashMapCountry.put(pojo.getName(), 1);
+                hashMapName.put(pojo.getName(), 1);
             }
         }
-        for (POJOGoogle pojo:arrayPojoGoogle){
-            if (hashMapCountry.containsKey(pojo.getName())){
-                hashMapCountry.put(pojo.getName(), hashMapCountry.get(pojo.getName()) + 1);
-            } else {
-                hashMapCountry.put(pojo.getName(), 1);
-            }
-        }
+//        for (POJOGoogle pojo:arrayPojoGoogle){
+//            if (hashMapName.containsKey(pojo.getName())){
+//                hashMapName.put(pojo.getName(), hashMapName.get(pojo.getName()) + 1);
+//            } else {
+//                hashMapName.put(pojo.getName(), 1);
+//            }
+//        }
         ArrayList<String> arrayListUnique = new ArrayList<>();
         ArrayList<String> arrayListDuplicate = new ArrayList<>();
         //Display the duplicate words and their counts
-        for (Map.Entry<String, Integer> entry : hashMapCountry.entrySet()) {
+        for (Map.Entry<String, Integer> entry : hashMapName.entrySet()) {
             if (entry.getValue() > 1) {
                 System.out.println("Repeated values: " + entry.getKey() + ": " + entry.getValue());
                 arrayListDuplicate.add(entry.getKey() + " * " + entry.getValue());
@@ -112,7 +113,7 @@ public class Main {
             }
         }
 
-        String[] header = {"Domain", "Name", "Country"};
+//        String[] header = {"Domain", "Name", "Country"};
 //        String[] recordDuplicatesDomain = new String[arrayListDuplicate.size()];
 //        String[] recordUniqueDomain = new String[arrayListUnique.size()];
 //        for (int i= 0;i<recordDuplicatesDomain.length; i++){
@@ -122,15 +123,15 @@ public class Main {
 //            recordUniqueDomain[i] = arrayListUnique.get(i);
 //        }
 
-        FileWriter fileWriter = new FileWriter(outputFile, true);
-        //header row
-        fileWriter.append(header[2]).append("\n");
-
-        //data row
-        for (String s:arrayListDuplicate) {
-            fileWriter.append(s).append("\n");
-        }
-        fileWriter.close();
+//        FileWriter fileWriter = new FileWriter(outputFile, true);
+//        //header row
+//        fileWriter.append(header[2]).append("\n");
+//
+//        //data row
+//        for (String s:arrayListDuplicate) {
+//            fileWriter.append(s).append("\n");
+//        }
+//        fileWriter.close();
 
 
 
